@@ -257,7 +257,7 @@ class CommandTestCase(GitSweepTestCase, InspectorTestCase, DeleterTestCase):
             except SystemExit as se:
                 pass
 
-        stdout = ''.join([i[0][0] for i in stdout.write.call_args_list])
-        stderr = ''.join([i[0][0] for i in stderr.write.call_args_list])
+        stdout = ''.join(i[0][0] for i in stdout.write.call_args_list)
+        stderr = ''.join(i[0][0] for i in stderr.write.call_args_list)
 
         return (se.code, stdout, stderr)

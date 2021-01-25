@@ -102,7 +102,7 @@ class CommandLine(object):
         """
         args = self.parser.parse_args(self.args)
 
-        dry_run = True if args.action == 'preview' else False
+        dry_run = args.action == 'preview'
         fetch = args.fetch
         skips = [i.strip() for i in args.skips.split(',')]
 

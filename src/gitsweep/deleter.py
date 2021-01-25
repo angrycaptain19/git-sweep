@@ -15,8 +15,4 @@ class Deleter(BaseOperation):
         """
         origin = self._origin
 
-        pushes = []
-        for ref in refs:
-            pushes.append(origin.push(':{0}'.format(ref.remote_head)))
-
-        return pushes
+        return [origin.push(':{0}'.format(ref.remote_head)) for ref in refs]

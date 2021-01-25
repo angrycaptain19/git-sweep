@@ -37,9 +37,7 @@ class BaseOperation(object):
         if not skip:
             skip = ['HEAD', self.master_branch]
 
-        refs = [i for i in origin.refs if not i.remote_head in skip]
-
-        return refs
+        return [i for i in origin.refs if i.remote_head not in skip]
 
     def _master_ref(self, origin):
         """
